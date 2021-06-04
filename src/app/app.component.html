@@ -4,6 +4,6 @@
       <button mat-button>Click</button>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-header></app-header>
+    <app-header (toggle)="sidenav.toggle()" (sayHi)="onSayHi($event)"></app-header>
   </mat-sidenav-content>
 </mat-sidenav-container>
