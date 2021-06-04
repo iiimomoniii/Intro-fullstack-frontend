@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +8,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Output() navToggle = new EventEmitter();
+
+  //Input from app for hide title 'Fullstack Web Application'
+  //set alias for mobileQueryMax is media_query and has boolean type
+  @Input("media_query") mobileQueryMax : boolean;
 
   mailNoti : number;
   noti : number;

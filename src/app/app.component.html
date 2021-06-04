@@ -4,6 +4,6 @@
       <button mat-button>Click</button>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-header (navToggle)="sidenav.toggle()"></app-header>
+    <app-header [media_query]="mobileQueryMax.matches" (navToggle)="sidenav.toggle()"></app-header>
   </mat-sidenav-content>
 </mat-sidenav-container>
