@@ -34,8 +34,8 @@
 <!-- table -->
 <div class="mat-elevation-z8 mt-3 table-responsive">
   
-  <div>
-    <mat-form-field appearance="outline">
+  <div class="d-flex justify-content-between align-items-center p-3 search_form">
+    <mat-form-field appearance="outline" class="w-50">
       <mat-label>Search product</mat-label>
       <input matInput placeholder="search" (keyup)="search($event)" [(ngModel)]="textSearch" >
       <mat-icon matSuffix *ngIf="!textSearch">search</mat-icon>
@@ -43,6 +43,11 @@
         <mat-icon >close</mat-icon>
       </button>
     </mat-form-field>
+
+    <button mat-flat-button color="primary">
+      <mat-icon>add</mat-icon>
+      New Product
+    </button>
   </div>
 
   <table mat-table [dataSource]="dataSource" class="table table-striped table-hover">
