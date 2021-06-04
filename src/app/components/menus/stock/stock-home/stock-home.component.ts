@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Product } from '@models/product.model';
 @Component({
@@ -15,9 +16,14 @@ export class StockHomeComponent implements OnInit {
   //search 
   textSearch: string;
 
+  //sort
+  //bind sort to matSort
+  @ViewChild(MatSort, {static : true}) sort : MatSort;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.dataSource.sort = this.sort;
     this.feedData();
   }
 
