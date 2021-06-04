@@ -21,10 +21,37 @@ export class StockHomeComponent implements OnInit {
   //call datas from fake datas
   feedData(){
     
-    const dummy = [
-      new Product(),
-      new Product(),
-      new Product(),
+    const dummy: Product[] = [
+     {
+      name : "macbook",
+      stock : 100,
+      price : 20000,
+      image: "assets/images/products/macbook.jpg"
+     },
+     {
+      name : "macbook",
+      stock : 100,
+      price : 20000,
+      image: "assets/images/products/macbook.jpg"
+     },
+     {
+      name : "macbook",
+      stock : 100,
+      price : 20000,
+      image: "assets/images/products/macbook.jpg"
+     },
+     {
+      name : "macbook",
+      stock : 100,
+      price : 20000,
+      image: "assets/images/products/macbook.jpg"
+     },
+     {
+        name : "macbook",
+        stock : 100,
+        price : 20000,
+        image: "assets/images/products/macbook.jpg"
+      },
     ];
 
     this.dataSource.data = dummy;
