@@ -32,13 +32,13 @@
 </div>
 
 <!-- table -->
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100 mt-3 table table-striped table-hover">
 
   <ng-container matColumnDef="image">
     <th mat-header-cell *matHeaderCellDef class="text-uppercase"> Image </th>
     <td mat-cell *matCellDef="let data">
       <div class="over-lay mx-auto d-block border-top border-left border-right rounded-top">
-        <img [src]="data.image" class="img-fluid bg-light rounded-top" alt="">
+        <img [src]="data.image" class="w-100 bg-light rounded-top" alt="">
         <div class="over-lay-text text-center mat-small">1150</div>
       </div>
     </td>
@@ -46,22 +46,22 @@
 
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef class="text-uppercase"> Name </th>
-    <td mat-cell *matCellDef="let data" class="text-truncate"> {{ data.name}} </td>
+    <td mat-cell *matCellDef="let data" class="align-middle text-truncate"> {{ data.name}} </td>
   </ng-container>
 
   <ng-container matColumnDef="price">
     <th mat-header-cell *matHeaderCellDef class="text-uppercase text-end"> Price </th>
-    <td mat-cell *matCellDef="let data" class="text-end"> {{ data.price | number : '1.2-2' }} </td>
+    <td mat-cell *matCellDef="let data" class="align-middle text-end"> {{ data.price | number : '1.2-2' }} </td>
   </ng-container>
 
   <ng-container matColumnDef="stock">
     <th mat-header-cell *matHeaderCellDef class="text-uppercase text-end"> Stock </th>
-    <td mat-cell *matCellDef="let data" class="text-end"> {{ data.stock | number }} </td>
+    <td mat-cell *matCellDef="let data" class="align-middle text-end"> {{ data.stock | number }} </td>
   </ng-container>
 
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef class="text-uppercase text-center"> Action </th>
-    <td mat-cell *matCellDef="let data" class="text-center">
+    <td mat-cell *matCellDef="let data" class="align-middle text-center">
       <button mat-icon-button>
         <mat-icon>edit_outline</mat-icon>
       </button>
