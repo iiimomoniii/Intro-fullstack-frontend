@@ -8,7 +8,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Output() navToggle = new EventEmitter();
-  @Output() sayHi = new EventEmitter<String>();
 
   mailNoti : number;
   noti : number;
@@ -22,6 +21,5 @@ export class HeaderComponent implements OnInit {
 
   onClickNavToggle(){
     this.navToggle.emit();
-    this.sayHi.emit("Hello from header to app (child to main)");
   }
 }

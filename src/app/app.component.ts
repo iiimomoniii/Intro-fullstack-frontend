@@ -7,10 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fullstack-front-end-angular';
-
-  onSayHi(text : String){
-    alert(text);
-  }
-
 }
 
