@@ -19,7 +19,17 @@
     <span class="ml-2">Admin</span>
   </button>
   <mat-menu #list="matMenu">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
+    <button mat-menu-item>
+      <mat-icon>dialpad</mat-icon>
+      <span>Redial</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>voicemail</mat-icon>
+      <span>Check voice mail</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Logout</span>
+    </button>
   </mat-menu>
 </mat-toolbar>
