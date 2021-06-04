@@ -1,9 +1,10 @@
 <mat-sidenav-container class="example-container">
-  <mat-sidenav mode="side" opened="true">
+  <mat-sidenav #sidenav mode="side" opened="true">
       <button mat-button>Click</button>
       <button mat-button>Click</button>
   </mat-sidenav>
   <mat-sidenav-content>
+    <button mat-button (click)="sidenav.toggle()">click</button>
     <app-header></app-header>
   </mat-sidenav-content>
 </mat-sidenav-container>
