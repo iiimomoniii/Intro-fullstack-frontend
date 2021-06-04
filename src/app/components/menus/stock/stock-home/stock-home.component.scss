@@ -48,6 +48,22 @@ td.mat-cell{
     color : white;
 }
 
+::ng-deep th.mat-column-price>.mat-sort-header-container{
+    justify-content: center;
+}
+
+::ng-deep th.mat-column-stock>.mat-sort-header-container{
+    justify-content: center;
+}
+
+::ng-deep th.mat-column-name>.mat-sort-header-container{
+    justify-content: center;
+}
+
+::ng-deep .mat-sort-header-arrow, .mat-sort-header-sort {
+    color: white;
+}
+
 @media (max-width: 600px) {
     th.mat-header-cell:nth-child(2){
         min-width: 400px;
