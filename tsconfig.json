@@ -36,7 +36,11 @@
       ],
       "@models/*":[
         "models/*"
+      ],
+      "@menus/*":[
+        "app/components/menus/*"
       ]
+
     }
   },
   "angularCompilerOptions": {

@@ -8,14 +8,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from '@app/app-material/app-material.module';
 
 import { HeaderComponent } from '@app/components/layouts/header/header.component';
-import { SidenavComponent } from './components/layouts/sidenav/sidenav.component'
+import { SidenavComponent } from './components/layouts/sidenav/sidenav.component';
+import { StockHomeComponent } from './components/menus/stock/stock-home/stock-home.component';
+import { StockCreateComponent } from './components/menus/stock/stock-create/stock-create.component';
+import { StockEditComponent } from './components/menus/stock/stock-edit/stock-edit.component'
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SidenavComponent
+    SidenavComponent,
+    StockHomeComponent,
+    StockCreateComponent,
+    StockEditComponent
   ],
   imports: [
     BrowserModule,
