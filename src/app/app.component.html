@@ -4,6 +4,8 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <app-header [media_query]="mobileQueryMax.matches" (navToggle)="sidenav.toggle()"></app-header>
-    <router-outlet></router-outlet>
+    <div class="content-wrapper">
+      <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
