@@ -23,7 +23,7 @@ export class StockHomeComponent implements OnInit {
     
     const dummy: Product[] = [
      {
-      name : "macbook",
+      name : "Repellat ipsam placeat ex alias sunt. Dolore mollitia rerum a veritatis consectetur hic veniam. Ipsam reprehenderit itaque fugit accusamus culpa libero et qui. Quia ipsum et facere. Quos eveniet itaque sequi cupiditate.",
       stock : 100,
       price : 20000,
       image: "assets/images/products/macbook.jpg"
@@ -31,25 +31,25 @@ export class StockHomeComponent implements OnInit {
      {
       name : "macbook",
       stock : 100,
-      price : 20000,
+      price : 12542,
       image: "assets/images/products/macbook.jpg"
      },
      {
       name : "macbook",
       stock : 100,
-      price : 20000,
+      price : 1454,
       image: "assets/images/products/macbook.jpg"
      },
      {
       name : "macbook",
       stock : 100,
-      price : 20000,
+      price : 187811,
       image: "assets/images/products/macbook.jpg"
      },
      {
         name : "macbook",
         stock : 100,
-        price : 20000,
+        price : 15448,
         image: "assets/images/products/macbook.jpg"
       },
     ];

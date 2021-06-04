@@ -10,5 +10,31 @@ td.mat-column-image {
 
 th.mat-column-name,
 td.mat-column-name {
-    width: 180px;
+    max-width: 150px;
+}
+
+th.mat-column-action,
+td.mat-column-action {
+    width: 150px;
+}
+
+
+.over-lay{
+    position: relative;
+    width: 80px;
+}
+
+.over-lay>img{
+    height: 80px;
+    object-fit: cover;
+}
+
+.over-lay-text {
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    opacity: 0.7;
+    width: 100%;
 }
