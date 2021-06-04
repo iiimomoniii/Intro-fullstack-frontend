@@ -4,9 +4,9 @@
     <mat-icon>search</mat-icon>
   </button>
   <button mat-icon-button>
-    <mat-icon>email</mat-icon>
+    <mat-icon [matBadge]="mailNoti" matBadgeColor="accent">mail_outline</mat-icon>
   </button>
   <button mat-icon-button>
-    <mat-icon>notifications</mat-icon>
+    <mat-icon [matBadge]="noti" matBadgeColor="warn">notifications_none</mat-icon>
   </button>
 </mat-toolbar>

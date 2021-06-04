@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  mailNoti : number;
+  noti : number;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.mailNoti = 50;
+    this.noti = 2;
   }
 
 }
