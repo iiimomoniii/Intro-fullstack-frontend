@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppMaterialModule } from '@app/app-material/app-material.module';
 
@@ -28,6 +29,7 @@ import { StockEditComponent } from './components/menus/stock/stock-edit/stock-ed
     AppRoutingModule,
     BrowserAnimationsModule,
     AppMaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

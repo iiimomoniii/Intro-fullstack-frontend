@@ -12,6 +12,9 @@ export class StockHomeComponent implements OnInit {
   displayedColumns : string[] = ['image', 'name', 'price','stock', 'action'];
   dataSource = new MatTableDataSource<Product>();
 
+  //search 
+  textSearch: string;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -57,5 +60,18 @@ export class StockHomeComponent implements OnInit {
     this.dataSource.data = dummy;
   }
 
+  search(event :any){
+    let fliterValue = '';
+    if (event) {
+      //tranfer and get value from HTML Input 
+      fliterValue = (event.target as HTMLInputElement).value;
+    }
+    this.dataSource.filter = fliterValue.trim().toLocaleLowerCase();
+  }
+
+  clearSearch(){
+    this.textSearch = '';
+    this.search(null);
+  }
 
 }

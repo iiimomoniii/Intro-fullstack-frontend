@@ -34,6 +34,17 @@
 <!-- table -->
 <div class="mat-elevation-z8 mt-3 table-responsive">
   
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Search product</mat-label>
+      <input matInput placeholder="search" (keyup)="search($event)" [(ngModel)]="textSearch" >
+      <mat-icon matSuffix *ngIf="!textSearch">search</mat-icon>
+      <button mat-icon-button matSuffix *ngIf="textSearch" (click)="clearSearch()">
+        <mat-icon >close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
   <table mat-table [dataSource]="dataSource" class="table table-striped table-hover">
 
     <ng-container matColumnDef="image">
