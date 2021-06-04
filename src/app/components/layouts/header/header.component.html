@@ -14,7 +14,9 @@
       <mat-icon [matBadge]="noti" matBadgeColor="warn">notifications_none</mat-icon>
     </button>
   </div>
-  <button mat-button [matMenuTriggerFor]="list">Menu</button>
+  <button mat-button [matMenuTriggerFor]="list">
+    <img class="avatar round-circle" src="assets\images\icons\avatar.png" alt="">
+  </button>
   <mat-menu #list="matMenu">
     <button mat-menu-item>Item 1</button>
     <button mat-menu-item>Item 2</button>
