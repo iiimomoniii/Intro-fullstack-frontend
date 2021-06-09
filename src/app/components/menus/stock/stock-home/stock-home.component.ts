@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -24,7 +25,7 @@ export class StockHomeComponent implements OnInit {
   //bind sort to mat-paginator
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
     this.dataSource.sort = this.sort;
@@ -34,6 +35,22 @@ export class StockHomeComponent implements OnInit {
 
   //call datas from fake datas
   feedData() {
+
+    //get product by observable
+    //observable 
+    this.httpClient.get("http://localhost:1150/product/30").subscribe(
+      data => {
+        //success
+        alert(JSON.stringify(data));
+      }, error => {
+        //error
+        alert(JSON.stringify(error.error.message))
+      },
+      ()=> {
+        //complete
+        alert("fedd network done")
+      }
+    )
 
     const dummy: Product[] = [
       {
