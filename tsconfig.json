@@ -40,7 +40,6 @@
       "@menus/*":[
         "app/components/menus/*"
       ]
-
     }
   },
   "angularCompilerOptions": {

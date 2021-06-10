@@ -18,4 +18,12 @@ export class WebapiService {
     return this.http.get<T>(_url);
   }
 
+  getImagesByURL (image : string) : string{
+    if (image) {
+      return `${this.url}images/${image}`;
+    } else {
+      return `assets/images/default/no_image.jpg`;
+    }
+  }
+
 }

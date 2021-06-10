@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Product } from '@models/product.model';
 import { ProductService } from '@services/product.service';
+
 @Component({
   selector: 'app-stock-home',
   templateUrl: './stock-home.component.html',
@@ -25,7 +26,7 @@ export class StockHomeComponent implements OnInit {
   //bind sort to mat-paginator
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor(private productSVC : ProductService) { }
+  constructor(private productService : ProductService) { }
 
   ngOnInit(): void {
     this.dataSource.sort = this.sort;
@@ -38,10 +39,14 @@ export class StockHomeComponent implements OnInit {
 
     //get product by observable
     //observable 
-    this.productSVC.getProducts().subscribe(
+    this.productService.getProducts().subscribe(
       data => {
         //success
-        this.dataSource.data = data;
+        //.map for get image path from url
+        this.dataSource.data = data.map(item => {
+          item.image = this.productService.getImagesByURL(item.image);
+          return item
+        });
       }, error => {
         //error
         alert(JSON.stringify(error.error.message))
