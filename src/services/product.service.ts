@@ -20,4 +20,8 @@ export class ProductService {
    return this.webapi.getImagesByURL(image);
   }
 
+  deleteProduct(id: number) : Observable<string>{
+    return this.webapi.delete<string>(`product/${id}`);
+  }
+
 }

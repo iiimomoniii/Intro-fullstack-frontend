@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Product } from '@models/product.model';
+import { Product, ProductResponse } from '@models/product.model';
 import { ProductService } from '@services/product.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-stock-home',
   templateUrl: './stock-home.component.html',
@@ -26,7 +26,7 @@ export class StockHomeComponent implements OnInit {
   //bind sort to mat-paginator
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor(private productService : ProductService) { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     this.dataSource.sort = this.sort;
@@ -71,6 +71,36 @@ export class StockHomeComponent implements OnInit {
   clearSearch() {
     this.textSearch = '';
     this.search(null);
+  }
+
+  onClickDeleteProduct(product: ProductResponse) {
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: `Delete Product ${product.name}`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+        //confirm delete
+        this.productService.deleteProduct(product.id).subscribe(
+          data => {
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+            this.feedData();
+          },
+          error => {
+            alert(JSON.stringify(error.error.message));
+          }
+        )
+      }
+    })
   }
 
 }

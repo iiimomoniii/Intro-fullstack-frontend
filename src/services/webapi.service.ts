@@ -27,4 +27,9 @@ export class WebapiService {
     }
   }
 
+  delete<T>(action : string) :Observable<T> {
+    const _url = this.url + action;
+    return this.http.delete<T>(_url);
+  }
+
 }
