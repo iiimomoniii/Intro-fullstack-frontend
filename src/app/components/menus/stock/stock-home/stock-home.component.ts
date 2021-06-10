@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Product } from '@models/product.model';
+import { ProductService } from '@services/product.service';
 @Component({
   selector: 'app-stock-home',
   templateUrl: './stock-home.component.html',
@@ -25,7 +26,7 @@ export class StockHomeComponent implements OnInit {
   //bind sort to mat-paginator
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private productSVC : ProductService) { }
 
   ngOnInit(): void {
     this.dataSource.sort = this.sort;
@@ -38,7 +39,7 @@ export class StockHomeComponent implements OnInit {
 
     //get product by observable
     //observable 
-    this.httpClient.get("http://localhost:1150/product/30").subscribe(
+    this.productSVC.getProducts().subscribe(
       data => {
         //success
         alert(JSON.stringify(data));
@@ -46,7 +47,7 @@ export class StockHomeComponent implements OnInit {
         //error
         alert(JSON.stringify(error.error.message))
       },
-      ()=> {
+      () => {
         //complete
         alert("fedd network done")
       }
