@@ -28,6 +28,14 @@ export class ProductService {
     return this.webapi.post<ProductResponse>(`product`, productForm);
   }
 
+  getProduct(id : number): Observable<ProductResponse>{
+    return this.webapi.get<ProductResponse>(`product/${id}`);
+  }
+
+  editProduct(id : number, productForm: FormData) : Observable<ProductResponse>{
+    return this.webapi.put<ProductResponse>(`product/${id}`, productForm);
+  }
+
 
 
 }
