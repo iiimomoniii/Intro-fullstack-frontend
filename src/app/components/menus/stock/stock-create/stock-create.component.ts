@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ProductResponse, ProductRequest } from '@models/product.model';
 import { ProductService } from '@services/product.service';
+import { Location } from '@angular/common';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-stock-create',
   templateUrl: './stock-create.component.html',
@@ -16,7 +18,10 @@ export class StockCreateComponent implements OnInit {
 
   addProductForm : FormData;
   
-  constructor(private productService : ProductService) { }
+  constructor(
+    private productService : ProductService,
+    private location : Location
+  ) { }
 
   ngOnInit(): void {
   }
@@ -46,13 +51,22 @@ export class StockCreateComponent implements OnInit {
     product.price = values.price;
     product.stock = values.stock;
     product.image = this.file;
+    localStorage.setItem('Product', JSON.stringify(product));
+
  
   this.productService.addProduct(this.productForm(product)).subscribe(
       data => {
-        alert(JSON.stringify(data));
+        Swal.fire(
+          `Save Product : ${data.name} success`,
+          'You clicked the button!',
+          'success'
+        )
       },
       error => {
         alert(error.error.message);
+      },
+      ()=> {
+        this.location.back();
       }
     );
   }
