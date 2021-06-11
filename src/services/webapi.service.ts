@@ -15,7 +15,7 @@ export class WebapiService {
    }
 
   get<T>(action: string): Observable<T> {
-    const _url = this.url + action;
+    const _url = action;
     return this.http.get<T>(_url);
   }
 
@@ -28,18 +28,18 @@ export class WebapiService {
   }
 
   delete<T>(action : string) :Observable<T> {
-    const _url = this.url + action;
+    const _url = action;
     return this.http.delete<T>(_url);
   }
 
   post<T>(action : string, formData : FormData) :Observable<T> {
-    const _url = this.url + action;
+    const _url = action;
     const _body = formData;
     return this.http.post<T>(_url, _body);
   }
 
   put<T>(action : string, formData : FormData) :Observable<T> {
-    const _url = this.url + action;
+    const _url = action;
     const _body = formData;
     return this.http.put<T>(_url, _body);
   }

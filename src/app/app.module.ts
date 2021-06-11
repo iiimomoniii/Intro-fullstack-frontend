@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { httpInterceptorProviders } from '@services/index';
 
 import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
@@ -14,6 +15,7 @@ import { SidenavComponent } from './components/layouts/sidenav/sidenav.component
 import { StockHomeComponent } from './components/menus/stock/stock-home/stock-home.component';
 import { StockCreateComponent } from './components/menus/stock/stock-create/stock-create.component';
 import { StockEditComponent } from './components/menus/stock/stock-edit/stock-edit.component'
+
 
 
 @NgModule({
@@ -33,7 +35,7 @@ import { StockEditComponent } from './components/menus/stock/stock-edit/stock-ed
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
