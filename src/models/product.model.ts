@@ -1,4 +1,4 @@
-export class Product {
+export class ProductRequest {
     name: string;
     stock: number;
     price: number;
@@ -14,3 +14,4 @@ export interface ProductResponse {
     createdAt: Date;
     updatedAt: Date;
 }
+

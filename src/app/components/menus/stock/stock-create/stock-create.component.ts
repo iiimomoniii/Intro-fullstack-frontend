@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Product } from '@models/product.model';
+import { ProductResponse, ProductRequest } from '@models/product.model';
+import { ProductService } from '@services/product.service';
 @Component({
   selector: 'app-stock-create',
   templateUrl: './stock-create.component.html',
@@ -12,8 +13,10 @@ export class StockCreateComponent implements OnInit {
   imagePreview : string | ArrayBuffer | null;
   //file for image
   file : File;
+
+  addProductForm : FormData;
   
-  constructor() { }
+  constructor(private productService : ProductService) { }
 
   ngOnInit(): void {
   }
@@ -38,14 +41,33 @@ export class StockCreateComponent implements OnInit {
     }
     //get values from productForm
     const values = productForm.value;
-    //new product obj
-    let product = new Product();
-    //assign value to obj
+    let product = new ProductRequest();
     product.name = values.name;
     product.price = values.price;
     product.stock = values.stock;
-    product.image = this.file.name;
-    alert(JSON.stringify(product));
+    product.image = this.file;
+ 
+  this.productService.addProduct(this.productForm(product)).subscribe(
+      data => {
+        alert(JSON.stringify(data));
+      },
+      error => {
+        alert(error.error.message);
+      }
+    );
   }
+
+  //use FormData for upload image together
+  productForm (product : ProductRequest) : FormData {
+    const formData = new FormData();
+    //appen key and value into formData
+    formData.append('name', product.name);
+    formData.append('photo', product.image);
+    formData.append('stock', `${product.stock}`);// => convert number to string
+    formData.append('price', `${product.price}`);
+    return formData;
+  }
+
+
 
 }

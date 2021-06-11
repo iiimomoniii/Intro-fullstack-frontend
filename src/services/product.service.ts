@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { WebapiService } from '@services/webapi.service';
-import { ProductResponse } from '@models/product.model';
+import { ProductRequest, ProductResponse } from '@models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +23,11 @@ export class ProductService {
   deleteProduct(id: number) : Observable<string>{
     return this.webapi.delete<string>(`product/${id}`);
   }
+
+  addProduct(productForm: FormData) : Observable<ProductResponse>{
+    return this.webapi.post<ProductResponse>(`product`, productForm);
+  }
+
+
 
 }

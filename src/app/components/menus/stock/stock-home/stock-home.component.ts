@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Product, ProductResponse } from '@models/product.model';
+import { ProductRequest, ProductResponse } from '@models/product.model';
 import { ProductService } from '@services/product.service';
 import Swal from 'sweetalert2';
 @Component({
@@ -14,7 +14,7 @@ export class StockHomeComponent implements OnInit {
 
   //Data Objects
   displayedColumns: string[] = ['image', 'name', 'price', 'stock', 'action'];
-  dataSource = new MatTableDataSource<Product>();
+  dataSource = new MatTableDataSource<ProductResponse>();
 
   //search 
   textSearch: string;
@@ -53,7 +53,7 @@ export class StockHomeComponent implements OnInit {
       },
       () => {
         //complete
-        alert("fedd network done")
+        //alert("fedd network done")
       }
     )
 

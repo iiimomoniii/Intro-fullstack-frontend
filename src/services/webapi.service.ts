@@ -32,4 +32,10 @@ export class WebapiService {
     return this.http.delete<T>(_url);
   }
 
+  post<T>(action : string, formData : FormData) :Observable<T> {
+    const _url = this.url + action;
+    const _body = formData;
+    return this.http.post<T>(_url, _body);
+  }
+
 }
