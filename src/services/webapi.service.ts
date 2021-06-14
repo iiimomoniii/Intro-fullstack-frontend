@@ -35,13 +35,13 @@ export class WebapiService {
   post<T>(action : string, formData : FormData) :Observable<T> {
     const _url = action;
     const _body = formData;
-    return this.http.post<T>(_url, _body);
+    return this.http.post<T>(_url, _body, { reportProgress : true });
   }
 
   put<T>(action : string, formData : FormData) :Observable<T> {
     const _url = action;
     const _body = formData;
-    return this.http.put<T>(_url, _body);
+    return this.http.put<T>(_url, _body, {reportProgress : true});
   }
 
 }

@@ -15,6 +15,8 @@ export class LoadingService {
 
   //passive callback call by next and subscribe when need
   indeterminate : Subject<boolean> = new Subject();
+  //
+  determinate : Subject<number> = new Subject();
 
   constructor(private overlay : Overlay) {
     this.indeterminate.subscribe(
@@ -28,6 +30,17 @@ export class LoadingService {
         }
       }
     )
+    
+    //status progress
+    this.determinate.subscribe(
+      number => {
+        if (number <= 100 && !this.overlayRef.hasAttached()) {
+          this.showSpinner();
+        } else if (number >= 100 && !this.overlayRef.hasAttached()) {
+          this.hideSpinner();
+        }
+      
+    })
    }
 
   private createOverlay() : OverlayRef {

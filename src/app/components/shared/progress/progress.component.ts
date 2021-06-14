@@ -21,7 +21,23 @@ export class ProgressComponent implements OnInit, AfterViewInit {
 
   constructor(
     private _viewContainerRef: ViewContainerRef,
-    private loadingService: LoadingService) { }
+    private loadingService: LoadingService) {
+
+    //progress bar
+    this.loadingService.indeterminate.subscribe(
+      //_ free parameter when don't use
+      _ => {
+        this.mode = 'indeterminate'
+      }
+    )
+
+    //status progress bar
+    this.loadingService.determinate.subscribe(
+      value => {
+       this.value = value
+       this.mode = 'determinate'
+      })
+  }
 
   ngOnInit(): void {
 
