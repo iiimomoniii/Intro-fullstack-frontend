@@ -89,7 +89,7 @@ export class RestInterceptor implements HttpInterceptor {
           }
         }),
       //delay response
-      delay(5000),
+      //delay(5000),
       finalize(() => {
         this.loadingService.indeterminate.next(false);
       })
