@@ -31,15 +31,18 @@
       "@services/*" : [
         "services/*"
       ],
-      "@pipes/*" : [
-        "pipes/*"
-      ],
       "@models/*":[
         "models/*"
       ],
       "@menus/*":[
         "app/components/menus/*"
-      ]
+      ],
+      "@share/*":[
+        "app/components/shared/*"
+      ],
+      "@layouts/*":[
+        "app/components/layouts/*"
+      ],
     }
   },
   "angularCompilerOptions": {
