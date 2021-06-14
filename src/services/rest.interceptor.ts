@@ -9,18 +9,25 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
-import { tap } from 'rxjs/operators';
+import { tap, finalize, delay } from 'rxjs/operators';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { LoadingService } from './loading.service';
 
 @Injectable()
 export class RestInterceptor implements HttpInterceptor {
 
-  constructor(private snackbar : MatSnackBar) {}
+  constructor(
+    private snackbar : MatSnackBar,
+    private loadingService : LoadingService
+    ) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const url = `${environment.baseUrl}api/${request.url}`;
     const urlReq = request.clone({ url });
     //console.log("Req : RestInterceptor");
+
+    this.loadingService.indeterminate.next(true);
+
     return next.handle(urlReq).pipe(
       tap( event => {
         //console.log("Res : RestInterceptor");
@@ -69,6 +76,11 @@ export class RestInterceptor implements HttpInterceptor {
             this.snackbar.open(error.message, '', config);
           }
         }
+      }),
+      //delay response
+      delay(5000),
+      finalize(() => {
+        this.loadingService.indeterminate.next(false);
       })
     );
   }

@@ -40,8 +40,6 @@ export class StockHomeComponent implements OnInit {
 
   //call datas from fake datas
   feedData() {
-    //call loading 
-    this.loadingService.showSpinner();
     //get product by observable
     //observable 
     this.productService.getProducts().subscribe(

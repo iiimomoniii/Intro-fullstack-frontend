@@ -3,6 +3,7 @@ import { TemplatePortal } from '@angular/cdk/portal';
 import { Template } from '@angular/compiler/src/render3/r3_ast';
 import { TemplateRef } from '@angular/core';
 import { Injectable, ViewContainerRef } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,22 @@ export class LoadingService {
   private overlayRef: OverlayRef = this.createOverlay();
   private templatePortal: TemplatePortal<any>;
 
-  constructor(private overlay : Overlay) { }
+  //passive callback call by next and subscribe when need
+  indeterminate : Subject<boolean> = new Subject();
+
+  constructor(private overlay : Overlay) {
+    this.indeterminate.subscribe(
+      show => {
+        //check overlay in first time
+        if (show && !this.overlayRef.hasAttached()){
+          this.showSpinner();
+          //check 
+        } else if (!show && this.overlayRef.hasAttached()) {
+          this.hideSpinner()
+        }
+      }
+    )
+   }
 
   private createOverlay() : OverlayRef {
     return this.overlay.create({
