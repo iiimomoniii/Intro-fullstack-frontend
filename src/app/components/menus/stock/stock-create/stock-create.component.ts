@@ -56,17 +56,10 @@ export class StockCreateComponent implements OnInit {
  
   this.productService.addProduct(this.productForm(product)).subscribe(
       data => {
-        Swal.fire(
-          `Save Product : ${data.name} success`,
-          'You clicked the button!',
-          'success'
-        )
+        this.location.back();
       },
       error => {
-        alert(error.error.message);
-      },
-      ()=> {
-        this.location.back();
+        console.log(error.error.message);
       }
     );
   }

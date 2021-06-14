@@ -49,11 +49,7 @@ export class StockHomeComponent implements OnInit {
         });
       }, error => {
         //error
-        alert(JSON.stringify(error.error.message))
-      },
-      () => {
-        //complete
-        //alert("fedd network done")
+        console.log(JSON.stringify(error.error.message))
       }
     )
 
@@ -88,15 +84,10 @@ export class StockHomeComponent implements OnInit {
         //confirm delete
         this.productService.deleteProduct(product.id).subscribe(
           data => {
-            Swal.fire(
-              'Deleted!',
-              'Your file has been deleted.',
-              'success'
-            )
             this.feedData();
           },
           error => {
-            alert(JSON.stringify(error.error.message));
+            console.log(JSON.stringify(error.error.message));
           }
         )
       }

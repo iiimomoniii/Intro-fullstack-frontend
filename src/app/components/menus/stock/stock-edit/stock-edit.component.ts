@@ -60,17 +60,10 @@ export class StockEditComponent implements OnInit {
 
     this.productService.editProduct(values.id, this.productForm(product)).subscribe(
       data => {
-        Swal.fire(
-          `Edit Product : ${data.name} success`,
-          'You clicked the button!',
-          'success'
-        )
+        this.location.back();
       },
       error => {
-        alert(error.error.message);
-      },
-      () => {
-        this.location.back();
+        console.log(error.error.message);
       }
     );
   }
@@ -95,7 +88,7 @@ export class StockEditComponent implements OnInit {
         this.editProductForm.setValue({id, name, price , stock})
       },
       error => {
-        alert(error.error.message);
+        console.log(error.error.message);
       } 
     )
   }
