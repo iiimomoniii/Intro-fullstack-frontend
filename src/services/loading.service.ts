@@ -17,6 +17,7 @@ export class LoadingService {
   private createOverlay() : OverlayRef {
     return this.overlay.create({
       hasBackdrop : true,
+      backdropClass : 'custom-backdrop',
       positionStrategy: this.overlay.position()
       .global()
       .centerVertically()
@@ -24,7 +25,7 @@ export class LoadingService {
     });
   }
 
-  private showSpinner(){
+  showSpinner(){
     this.overlayRef.attach(this.templatePortal);
   }
 

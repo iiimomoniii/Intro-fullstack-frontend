@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ProductRequest, ProductResponse } from '@models/product.model';
+import { LoadingService } from '@services/loading.service';
 import { ProductService } from '@services/product.service';
 import Swal from 'sweetalert2';
 @Component({
@@ -26,7 +27,10 @@ export class StockHomeComponent implements OnInit {
   //bind sort to mat-paginator
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor(private productService: ProductService) { }
+  constructor(
+    private productService: ProductService,
+    private loadingService : LoadingService
+    ) { }
 
   ngOnInit(): void {
     this.dataSource.sort = this.sort;
@@ -36,7 +40,8 @@ export class StockHomeComponent implements OnInit {
 
   //call datas from fake datas
   feedData() {
-
+    //call loading 
+    this.loadingService.showSpinner();
     //get product by observable
     //observable 
     this.productService.getProducts().subscribe(
