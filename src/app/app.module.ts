@@ -14,7 +14,8 @@ import { HeaderComponent } from '@app/components/layouts/header/header.component
 import { SidenavComponent } from './components/layouts/sidenav/sidenav.component';
 import { StockHomeComponent } from './components/menus/stock/stock-home/stock-home.component';
 import { StockCreateComponent } from './components/menus/stock/stock-create/stock-create.component';
-import { StockEditComponent } from './components/menus/stock/stock-edit/stock-edit.component'
+import { StockEditComponent } from './components/menus/stock/stock-edit/stock-edit.component';
+import { ProgressComponent } from './components/shared/progress/progress.component'
 
 
 
@@ -25,7 +26,8 @@ import { StockEditComponent } from './components/menus/stock/stock-edit/stock-ed
     SidenavComponent,
     StockHomeComponent,
     StockCreateComponent,
-    StockEditComponent
+    StockEditComponent,
+    ProgressComponent
   ],
   imports: [
     BrowserModule,
