@@ -1,11 +1,11 @@
 <img class="img-fluid bg-color" src="assets\images\icons\avatar.png" alt="">
 
 <mat-nav-list dense class="mt-2">
-  <a mat-list-item [routerLink]="['/stock']" routerLinkActive="is_active">
+  <a mat-list-item [routerLink]="['/stock']" routerLinkActive="is_active" (click)="onClickNavClose()">
     <span mat-line><span class="mat-h4">Stock</span></span>
     <img matListAvatar class="img-icon" src="assets\images\icons\stock.png" alt="">
   </a>
-  <a mat-list-item [routerLink]="['/shop']" routerLinkActive="is_active">
+  <a mat-list-item [routerLink]="['/shop']" routerLinkActive="is_active" (click)="onClickNavClose()">
     <span mat-line><span class="mat-h4">Shop</span></span>
     <img matListAvatar class="img-icon" src="assets\images\icons\shop.png" alt="">
   </a>
