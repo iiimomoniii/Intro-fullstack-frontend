@@ -86,7 +86,7 @@ export class StockHomeComponent implements OnInit {
       if (result.value) {
         //confirm delete
         this.productService.deleteProduct(product.id).subscribe(
-          data => {
+          _ => {
             this.feedData();
           },
           error => {

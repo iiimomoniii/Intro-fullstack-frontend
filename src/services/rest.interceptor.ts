@@ -61,7 +61,7 @@ export class RestInterceptor implements HttpInterceptor {
                 this.snackbar.open("Create Success", '', config);
                 break;
               case 204:
-                this.snackbar.open("Edit Success", '', config);
+                this.snackbar.open("Delete Success", '', config);
                 break;
             }
             break;
@@ -89,7 +89,7 @@ export class RestInterceptor implements HttpInterceptor {
           }
         }),
       //delay response
-      delay(5000),
+      // delay(5000),
       finalize(() => {
         this.loadingService.indeterminate.next(false);
       })
