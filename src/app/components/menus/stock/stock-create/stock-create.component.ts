@@ -51,7 +51,6 @@ export class StockCreateComponent implements OnInit {
     product.price = values.price;
     product.stock = values.stock;
     product.image = this.file;
-    localStorage.setItem('Product', JSON.stringify(product));
 
  
   this.productService.addProduct(this.productForm(product)).subscribe(

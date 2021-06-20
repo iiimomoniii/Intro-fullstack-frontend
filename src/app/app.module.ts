@@ -11,13 +11,12 @@ import { ShopComponent } from '@menus/shop/shop/shop.component';
 
 import { AppMaterialModule } from '@app/app-material/app-material.module';
 
-import { HeaderComponent } from '@app/components/layouts/header/header.component';
-import { SidenavComponent } from './components/layouts/sidenav/sidenav.component';
+import { HeaderComponent } from '@layouts/header/header.component';
+import { SidenavComponent } from '@layouts/sidenav/sidenav.component';
 import { StockHomeComponent } from '@menus/stock/stock-home/stock-home.component';
 import { StockCreateComponent } from '@menus/stock/stock-create/stock-create.component';
 import { StockEditComponent } from '@menus/stock/stock-edit/stock-edit.component';
-import { ProgressComponent } from './components/shared/progress/progress.component';
-
+import { ProgressComponent } from '@share/progress/progress.component';
 
 
 @NgModule({
