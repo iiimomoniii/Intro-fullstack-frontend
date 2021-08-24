@@ -16,12 +16,12 @@ export class WebapiService {
 
   get<T>(action: string): Observable<T> {
     const _url = action;
-    return this.http.get<T>(_url);
+    return this.http.get<T>(_url, { reportProgress : true });
   }
 
   getImagesByURL (image : string) : string{
     if (image) {
-      return `${this.url}images/${image}`;
+      return `${this.url}api/images/${image}`;
     } else {
       return `assets/images/default/no_image.jpg`;
     }
